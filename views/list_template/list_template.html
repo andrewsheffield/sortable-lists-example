@@ -1,0 +1,14 @@
+<div ng-app="sortApp" ng-controller="sortCont as vm">
+  <div>
+    <ul sortable-list="vm.lists.list1" connect-with="vm.lists.list2" order-by="order">
+      <li>{{ $index }}: {{ item.name }}</li>
+    </ul>
+    <div></div>
+    <ul sortable-list="vm.lists.list2" connect-with="vm.lists.list1" item-name="thing" order-by="order">
+      <li>{{ thing.order }}: {{ thing.name }}</li>
+    </ul>
+  </div>
+  <hr>
+  <input ng-model="vm.newItem" /><button ng-click="vm.addItem(vm.newItem)">Add</button>
+  
+</div>
