@@ -1,3 +1,80 @@
 body {
-	color: red;
+  background-color: #ccc;
+  padding-top: 100px;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  min-height: 100px;
+  background-color: #aaa;
+  padding: 0px;
+  border: 2px solid #aaa;
+}
+
+.item {
+  position: relative;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  width: 100%;
+  cursor: pointer;
+  padding: 10px;
+
+  background: rgb(255,255,255); /* Old browsers */
+  background: -moz-linear-gradient(-55deg,  rgba(255,255,255,1) 60%, rgba(247,247,247,1) 60%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-55deg,  rgba(255,255,255,1) 60%,rgba(247,247,247,1) 60%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(155deg,  rgba(255,255,255,1) 60%,rgba(247,247,247,1) 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+    
+  .left {
+    position: relative;
+    float: left;
+    width: 8%;
+    text-align: right;
+    padding-top: 10px;
+    height: 100%;
+    .number {
+      width: 100%;
+      color: #555;
+      text-align: right;
+      position: relative;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+  
+  .center {
+    position: relative;
+    float: left;
+    margin-left: 25px;
+    width: 60%;
+      .title {
+      color: #09d;
+      font-size: 18px;
+      margin-top: 8px;
+    }
+    .type {
+      color: #aaa;
+      margin-top: 10px;
+      margin-bottom: 7px;
+    }
+  }
+  
+  .right {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    .time {
+      color: #aaa;
+      margin-top: 16px;
+      text-align: right;
+    }
+    .time.end {
+      margin-top: 16px;
+    }
+  }
+  
+  
 }

@@ -1,14 +1,59 @@
 <div ng-app="sortApp" ng-controller="sortCont as vm">
   <div>
-    <ul sortable-list="vm.lists.list1" connect-with="vm.lists.list2" order-by="order">
-      <li>{{ $index }}: {{ item.name }}</li>
-    </ul>
-    <div></div>
-    <ul sortable-list="vm.lists.list2" connect-with="vm.lists.list1" item-name="thing" order-by="order">
-      <li>{{ thing.order }}: {{ thing.name }}</li>
-    </ul>
+    <div class="col-xs-6">
+      <ul class="list" sortable-list="vm.list1" connect-with="vm.list2" order-by="order">
+        
+        <li>
+          <div class="item">
+            <div class="left">
+              <div class="number">{{ item.order }}.</div>
+            </div>
+
+            <div class="center">
+              <div class="title">{{ item.name }}</div>
+              <div class="type">type: TV Ad</div>
+            </div>
+
+            <div style="clear:both"></div>
+
+            <div class="right">
+              <div class="time start">start: Jan 1st, 2016</div>
+              <div class="time end">end: Aug 1st, 2016</div>
+            </div>
+
+          </div><!--    End of item block    -->
+
+        </li>
+        
+      </ul>
+    </div>
+    <div class="col-xs-6">
+      <ul class="list" sortable-list="vm.list2" connect-with="vm.list1" item-name="thing" order-by="order">
+       	<li> 
+          <div class="item">
+            <div class="left">
+              <div class="number">{{ thing.order }}.</div>
+            </div>
+
+            <div class="center">
+              <div class="title">{{ thing.name }}</div>
+              <div class="type">type: TV Ad</div>
+            </div>
+
+            <div style="clear:both"></div>
+
+            <div class="right">
+              <div class="time start">start: Jan 1st, 2016</div>
+              <div class="time end">end: Aug 1st, 2016</div>
+            </div>
+
+          </div><!--    End of item block    -->
+				</li>
+
+      </ul>
+    </div>
   </div>
-  <hr>
-  <input ng-model="vm.newItem" /><button ng-click="vm.addItem(vm.newItem)">Add</button>
-  
+  <hr> 
 </div>
+
+

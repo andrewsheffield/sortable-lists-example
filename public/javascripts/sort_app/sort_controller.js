@@ -7,36 +7,23 @@
 	function sortCont(sortService) {
 
 		var vm = this;
-		vm.lists = {
-			list1: [
-				{
-					name: "Sheff",
-					order: 0
-				},
-				{
-					name: "Abi",
-					order: 1
-				}
-			],
-			list2: [
-				{
-					name: "Kim",
-					order: 0
-				}
-			]
-		};
+		vm.list1 = [];
+		vm.list2 = [];
 
+		sortService.getLists()
+			.then(function(res) {
+				angular.forEach(res.data.list1, function(item) {
+					vm.list1.push(item);
+				});
+				angular.forEach(res.data.list2, function(item) {
+					vm.list2.push(item)
+				});
+			}, error);
 
-
-		function init() {
-			sortService.getLists()
-				.then(function(res) {
-					vm.lists = res.data;
-					vm.lists.list1.push({ name: "sue", order: 2})
-					console.log(vm.lists);
-				}, error);
-		}
-		init();
+		vm.addItem = function(str) {
+	    vm.list1.push({name: str})
+	    console.log(vm.list1)
+	  }
 
 		function error (err) {
 			console.log(err);

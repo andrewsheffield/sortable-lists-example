@@ -4,10 +4,10 @@
 	angular.module('sortApp')
 	  .directive('sortableList', sortableList);
 
-	function sortableList($compile, $parse, $interpolate) {
+	function sortableList($interpolate) {
 	  
 	  var linkFunction = function(scope, element, attributes) {
-	    
+	    var vm = this;
 	    var connectWithListDOM = $(document).find("[sortable-list='" + attributes.connectWith + "']");
 	    var connectedWithList = scope.connectedWithList;
 	    var listName = attributes.sortableList;
@@ -69,9 +69,7 @@
 	            setNewOrder(0, list.length - 1);
 	          }
 	        }
-	        
-	        
-	        
+
 	        render();
 	        
 	      }//end of update function
@@ -87,7 +85,8 @@
 	      }
 	    }
 	    
-	    function render() {
+	    function render () {
+	    	console.log(list)
 	      element.html("");
 	      var itemName;
 	      if (scope.itemName) {
@@ -95,8 +94,9 @@
 	      } else {
 	        itemName = "item";
 	      }
+
 	      angular.forEach(list, function(value, key) {
-	      	console.log(value);
+	      	console.log("Rendered: " + value.name)
 	        scope[itemName] = value;
 	        scope.$index = key;
 	        var exp = $interpolate(itemTemplate)(scope);
@@ -106,7 +106,7 @@
 	    
 	    scope.$watch(function(scope) { return scope.list }, function() {
 	    	console.log("Watcher detected a change")
-	      render();
+	     	render();
 	    }, true);
 	    
 	    render();
