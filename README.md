@@ -38,7 +38,7 @@ Adding an item-name will rename or declare the name of the variable in the scope
 Declaring order-by will allow the sortable-list to alter the order-by value when objects move.  The value is treated as an index and require a 0-n format.  This allows for easy storing of order.  Without order-by declared the sortable-list will default to the index of the array.
 
 ###$interpolation
-SortableList uses $interpolation for the child html block inside of the sortableList block.  This allows for any amount of DOM customization in the list block and does not constrain the coder to <li>
+SortableList uses $interpolation for the child html block inside of the sortableList block.  This allows for any amount of DOM customization in the list block and does not constrain the coder to `<li>`
 
 
 #Run this app
