@@ -7,7 +7,6 @@
 	function sortableList($interpolate) {
 	  
 	  var linkFunction = function(scope, element, attributes) {
-	    var vm = this;
 	    var connectWithListDOM = $(document).find("[sortable-list='" + attributes.connectWith + "']");
 	    var connectedWithList = scope.connectedWithList;
 	    var listName = attributes.sortableList;
@@ -22,6 +21,8 @@
 	      list.sort(comparator);
 	    }
 	    
+	    //Sorting the list by the sort key on init will allow
+	    //Changes to the ordering to be made easier.
 	    if (scope.orderBy) {
 	      sortList(scope.orderBy)
 	    }
@@ -86,7 +87,6 @@
 	    }
 	    
 	    function render () {
-	    	console.log(list)
 	      element.html("");
 	      var itemName;
 	      if (scope.itemName) {
@@ -96,7 +96,6 @@
 	      }
 
 	      angular.forEach(list, function(value, key) {
-	      	console.log("Rendered: " + value.name)
 	        scope[itemName] = value;
 	        scope.$index = key;
 	        var exp = $interpolate(itemTemplate)(scope);
@@ -105,7 +104,6 @@
 	    }
 	    
 	    scope.$watch(function(scope) { return scope.list }, function() {
-	    	console.log("Watcher detected a change")
 	     	render();
 	    }, true);
 	    

@@ -63,8 +63,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/lists', function(req, res, next) {
-
 	res.json(lists);
-})
+});
+
+router.put('/lists', function(req, res, next) {
+	lists = req.body;
+	res.send('Lists were saved');
+});
 
 module.exports = router;
