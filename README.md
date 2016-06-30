@@ -45,6 +45,7 @@ SortableList uses $interpolation for the child html block inside of the sortable
 This app runs on node and contains all of its needed dependancies.
 
 Order of operations to run app
+
 1. Git clone https://github.com/andrewsheffield/sortable-lists-example.git
 2. cd sortable-lists-example
 3. npm install
